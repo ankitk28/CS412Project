@@ -43,16 +43,19 @@ def DAGcon(G, N):
         caches.append(set())
 
     for i in range(len(l_g)):
+        if i%10000 == 0:
+            print(i)
         a, b = l_g[i][0], l_g[i][1]
         if b in caches[a] or a in caches[b]:
-            continue
-        elif checkpath(l, a, b):
-            caches[a].add(b)
             continue
         elif checkpath(l, b, a):
             caches[b].add(a)
             continue
-        else:
+        elif checkpath(l, a, b):
             caches[a].add(b)
-            l[a].add(b)
+            continue
+        else:
+            #print(a,b)
+            caches[b].add(a)
+            l[b].add(a)
     return l, caches
