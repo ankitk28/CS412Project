@@ -35,6 +35,17 @@ def insertNode(r, iL, l, j, i):
     return
 
 def ConstructPrefixTree(l):
+    """A function to construct a prefix tree given the list of textual patterns.
+
+    Parameters
+    ----------
+    l : List of patterns
+
+    Returns
+    -------
+    Returns the root node and the invert list.
+
+    """
     root = list()
     root.append(dict())
     invertList = dict()

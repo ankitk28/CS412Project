@@ -17,6 +17,8 @@ from utils import *
 import pickle
 import math
 
+
+
 def read_corpus(file):
     corpus = []
     with open(file, 'rb') as f:
@@ -102,7 +104,7 @@ def calculate_wilson_score(s, b, confidence=0.05):
     n = len(s)
     ph = 1.0 * pos / n
     sqr = math.sqrt((ph * (1 - ph) + z * z / (4 * n)) / n)
-    numer = (ph + z * z / (2 * n))# - z * sqr) #uncomment for lower bound on wilson score 
+    numer = (ph + z * z / (2 * n))# - z * sqr) #uncomment for lower bound on wilson score
     denom = (1 + z * z / n)
     return numer/denom
 

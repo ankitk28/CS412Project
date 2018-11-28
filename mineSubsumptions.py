@@ -16,6 +16,20 @@ import math
 import scipy.stats as st
 
 def MineSubsumptions(T, l, iL, alpha):
+    """Short summary.
+
+    Parameters
+    ----------
+    l : List of patterns
+    iL : List (invert list)
+    alpha : type
+        Description of parameter `alpha`.
+
+    Returns
+    -------
+    Returns a list of subsumptions and its weights
+
+    """
     S  = list()
     W = dict()
     for i in range(len(l)-1,-1,-1):

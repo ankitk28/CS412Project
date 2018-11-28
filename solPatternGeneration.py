@@ -17,6 +17,21 @@ import scipy.stats as st
 
 #replacing non entity non frequent n gram by wildcard
 def generate_sol_patterns(patterns, ngrams):
+    """A method to generate SOL patterns given the textual patterns and ngrams.
+
+    Parameters
+    ----------
+    patterns : type List
+        Textual Patterns
+    ngrams : type List of tuples
+        NGrams
+
+    Returns
+    -------
+    type List
+        Returns SOL Patterns
+
+    """
     pos_patterns = []
     for pattern_index, pattern in enumerate(patterns):
         words = pattern.split(" ")
@@ -55,6 +70,23 @@ def generate_sol_patterns(patterns, ngrams):
 
 #replacing non entity non frequent n gram by wildcard
 def generate_sol_pos_patterns(patterns, ngrams, post):
+    """A method to generate SOL Patterns with POS tags.
+
+    Parameters
+    ----------
+    patterns : type List
+        Textual Patterns
+    ngrams : type List of tuples
+        NGrams
+    post : type List
+        POS Tag patterns
+
+    Returns
+    -------
+    type List
+        List of patterns with POS Tags
+
+    """
     sol_pos_patterns = []
     for pattern_index, pattern in enumerate(patterns):
         words = pattern.split(" ")
@@ -119,6 +151,19 @@ def obtainpat(patlist):
     return strpat, entstr
 
 def get_support_of_sols(sol_patterns, sol_pos_patterns):
+    """A function to get support of each of the SOL and POS replaced SOL patterns.
+
+    Parameters
+    ----------
+    sol_patterns : LIST
+    sol_pos_patterns : LIST
+
+    Returns
+    -------
+    type Tuple
+        Returns tuple of dictionaries with keys as pattern and value as support.
+
+    """
     suppcloud = dict()
     poscloud = dict()
 

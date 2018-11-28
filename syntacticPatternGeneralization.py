@@ -48,6 +48,14 @@ def registersupport(syncloudwithsupport, syncloud, activesyn, syn, supp):
 #pattern is a list- each list elements will be one of entity, n-grams, *
 #sup is set of tuples. tuples size will be equal to no. of entity in pattern
 def gensyngen(pats, poscloud, supps):
+    """A function to do syntactic pattern generalization.
+
+    Parameters
+    ----------
+    pats : List of patterns.
+    poscloud : POS support of patterns
+
+    """
     syncloud = dict()
     activesyn = dict()
     syncloudwithsupport = dict()

@@ -17,6 +17,19 @@ import scipy.stats as st
 
 
 def generate_textual_patterns(corpus):
+    """A method to generate textual patterns given the corpus.
+
+    Parameters
+    ----------
+    corpus : type List
+        List of sentences is passed.
+
+    Returns
+    -------
+    type List
+        List of textual patterns
+
+    """
     textual_patterns = []
     for i, sentence in enumerate(corpus):
         dep_parse = nlp(sentence)
@@ -39,11 +52,39 @@ def generate_textual_patterns(corpus):
     return(textual_patterns)
 
 def write_textual_patterns_to_file(pattern_file, textual_patterns):
+    """A utility to write the generated textual patterns to a file.
+
+    Parameters
+    ----------
+    pattern_file : type Path
+        Path of the file
+    textual_patterns : type List
+        List of textual patterns
+
+    Returns
+    -------
+    type None
+        Doesn't return anything
+
+    """
     with open(pattern_file, "w") as f:
         for p in textual_patterns:
             f.write(str(p) + "\n")
 
 def convert_textual_patterns_to_lower_case(pattern_file):
+    """Converts patterns to lower case barring the entities.
+
+    Parameters
+    ----------
+    pattern_file : type Path
+        The file containing the textual patterns
+
+    Returns
+    -------
+    type List
+        Returns the list of textual patterns converted to lowercase.
+
+    """
     textual_patterns = []
     with open(pattern_file, 'rb') as f:
         for line in f:

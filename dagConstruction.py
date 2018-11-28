@@ -16,6 +16,20 @@ import math
 import scipy.stats as st
 
 def dfs(l, vis, a, b):
+    """Performs a Depth First Search.
+
+    Parameters
+    ----------
+    l : Set of current edges
+    vis : Boolean to check bit mask
+    a : Current Vertex
+    b : Target Vertex
+
+    Returns
+    -------
+    Nothing
+
+    """
     if a == b:
         return
     for i in l[a]:
@@ -34,6 +48,18 @@ def checkpath(l, a, b):
     return vis[b]
 
 def DAGcon(G, N):
+    """A method to construct a Directed Acyclic graph
+
+    Parameters
+    ----------
+    G : The subsumption set.
+    N : The number of nodes.
+
+    Returns
+    -------
+    Returns the DAG as a list.
+
+    """
     l = list()
     caches = list()
     l_g = sorted(G, key=lambda x: G[x], reverse = True)
