@@ -10,9 +10,9 @@ from collections import defaultdict
 import random
 import copy
 import sys
-from utils import *
 import pickle
 import math
+from utils import *
 import scipy.stats as st
 from dagConstruction import *
 from mineSubsumptions import *
@@ -22,19 +22,14 @@ from solPatternGeneration import *
 from syntacticPatternGeneralization import *
 from textualPatternGeneration import *
 
-
 params = {'data_dir': sys.argv[1], 'corpus_fn': sys.argv[2]}
 os.chdir(params['data_dir'])
-
-print(params)
 
 corpus = read_corpus(os.path.join(params['data_dir'], params['corpus_fn']))
 textual_patterns = generate_textual_patterns(corpus)
 write_textual_patterns_to_file("file.txt", textual_patterns)
 textual_patterns = convert_textual_patterns_to_lower_case("file.txt")
 post = generate_pos_tags_for_patterns(textual_patterns, "TexPatPosTag.pkl")
-
-
 
 seqmining_dataset = generate_seqmining_dataset(textual_patterns)
 ngrams = generate_frequent_ngrams(seqmining_dataset, 5)
