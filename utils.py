@@ -100,8 +100,11 @@ def calculate_wilson_score(s, b, confidence=0.05):
     z = st.norm.ppf(1 - (1 - confidence) / 2)
     pos = len(list(set(s) & set(b)))
     n = len(s)
-    phat = 1.0 * pos / n
-    return (phat + z * z / (2 * n) - z * math.sqrt((phat * (1 - phat) + z * z / (4 * n)) / n)) / (1 + z * z / n)
+    ph = 1.0 * pos / n
+    sqr = math.sqrt((ph * (1 - ph) + z * z / (4 * n)) / n)
+    numer = (ph + z * z / (2 * n))# - z * sqr) #uncomment for lower bound on wilson score 
+    denom = (1 + z * z / n)
+    return numer/denom
 
 #calculate_wilson_score([ 'a','b'], ['a','b','c','d','e','f', 'g','h','i','j'], 0.95)
 
